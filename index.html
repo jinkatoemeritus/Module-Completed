@@ -1,0 +1,132 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UX Prototype</title>
+    <meta name="description" content="UX Prototype">
+    <meta property="og:type" content="website">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/checkmark.css">
+
+    <!-- Confetti -->
+    <script src="confetti.js"></script>
+    <script language="JavaScript">
+        
+
+        /* ---------------------------------- Trigger Code */
+
+        function basic(){
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function makeItRain() {
+            document.getElementById("makeItRain").disabled = true;
+            var end = Date.now() + (2 * 1000);
+
+            // Emeritus Colors
+            var colors = ['#00BE6D', '#1F7EAD'];
+
+            function frame() {
+            confetti({
+                particleCount: 2,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: colors
+            });
+            confetti({
+                particleCount: 2,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: colors
+            });
+
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+            else {
+                document.getElementById("makeItRain").disabled = false;
+            }
+            };
+            frame();
+        }
+	</script>
+</head>
+
+<body>
+
+<script>
+    window.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM fully loaded and parsed");
+    makeItRain();
+    // basic();
+    var element = document.getElementById("content_wrap");
+    element.classList.add("loaded");
+});
+    
+</script>
+<div id="content_wrap" class="content_wrap">
+    <svg width="133px" height="133px" viewBox="0 0 133 133" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="check-group" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="filled-circle" fill="#009BDB" cx="66.5" cy="66.5" r="54.5"></circle>
+        <circle id="white-circle" fill="#FFFFFF" cx="66.5" cy="66.5" r="55.5"></circle>
+        <circle id="outline" stroke="#009BDB" stroke-width="4" cx="66.5" cy="66.5" r="54.5"></circle>
+        <polyline id="check" stroke="#FFFFFF" stroke-width="4" points="41 70 56 85 92 49"></polyline>
+        </g>
+    </svg>
+    
+    <h1 class="animateTargetH1" id="makeItRain">Module 4 Completed!</h1>
+
+    <div class="achievement_wrap">
+        <h3 class="animateTarget">Your Achievement</h3>
+        <ul>
+            <li class="animateTarget delay1">
+                <img src="img/badge_2.svg" alt="">
+                <p>You submitted 3 assignments on time</p>
+            </li>
+            <li class="animateTarget delay2">
+                <img src="img/badge_2.svg" alt="">
+                <p>You helped on discussion</p>
+            </li>
+            <li class="animateTarget delay3">
+                <img src="img/badge_2.svg" alt="">
+                <p>You completed 5 lesson in a row</p>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="insights_wrap">
+        <h3 class="animateTarget">Insights from this Module</h3>
+        <ul>
+            <li class="animateTarget delay1">Companies that integrate analytical decision-making with creative thinking outperform their peers by 26% in profitability and have a 33% higher revenue growth, highlighting the importance of balancing art and science in strategy creation.</li>
+            <li class="animateTarget delay2">Organizations that align their culture with their strategy are 1.9 times more likely to report above-average financial performance, underscoring the need for cultural consideration in strategy development.</li>
+            <li class="animateTarget delay3">73% of successful companies base their strategic decisions on their core capabilities, emphasizing the utilization of core assets and capabilities in strategy formation.</li>
+        </ul>
+    </div>
+</div>
+
+<canvas id="drawing_canvas"></canvas>
+
+
+      
+
+
+
+
+
+</body>
+</html>
